@@ -1,0 +1,39 @@
+body {
+	margin: 0px;
+}
+
+div {
+	text-align: center;
+	font-size: 40px;
+	color: yellow;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+}
+
+.text {
+	position: relative;
+	top: 50%;
+}
+
+.parallax {
+	height: 100vh;
+	background-color: black;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.static {
+	background-color: black;
+	height: 50px;
+}
+
+#img1 {
+	background-image: url(Discos.jpg);
+}
+
+#img2 {
+	background-image: url(Libros.jpg);
+}
