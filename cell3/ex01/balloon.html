@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <!-- Definimos el estilo y creamos el círculo con div -->
+    <style>
+        html, body
+        {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #globodiv
+        {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+   <!-- Creamos el script con varias funciones:
+    colorup: cambia el color en el caso de que el círculo se agrande al cliquear.
+    colordown: cambia el color cuando el círculo se hace más pequeño al sacar el puntero del ratón
+    big: aumenta el tamaño del círculo de 10 en 10 píxeles hasta un máximo de 420 al cliquear
+    small: reduce el tamaño del círculo de 5 en 5 píxeles al sacar el puntero del ratón -->
+   <script>
+       let color = "red";
+       function colorup()
+       {
+           const globo = document.getElementById("globodiv");
+
+           console.log(color);
+           
+           if (color == "red")
+           {
+               globo.style.backgroundColor = "green";
+               color = "green";
+            }
+            
+            else if (color == "green")
+            {
+                globo.style.backgroundColor = "blue";
+                color = "blue";
+            }
+            
+            else if (color == "blue")
+            {
+               globo.style.backgroundColor = "red";
+               color = "red";
+            }
+
+        }
+
+       function colordown()
+       {
+           const globo = document.getElementById("globodiv");
+
+           console.log(color);
+           
+           if (color == "blue")
+           {
+               globo.style.backgroundColor = "green";
+               color = "green";
+            }
+            
+            else if (color == "green")
+            {
+                globo.style.backgroundColor = "red";
+                color = "red";
+            }
+            
+            else if (color == "red")
+            {
+               globo.style.backgroundColor = "blue";
+               color = "blue";
+            }
+
+        }
+        
+        function big()
+        {
+            const globo = document.getElementById("globodiv");
+            let diametro = globo.clientHeight;
+            
+            colorup();
+                        
+            if (diametro <= 420)
+            {
+                globodiv.style.height = diametro + 10 + "px";
+                globodiv.style.width = diametro + 10 + "px";
+            }
+            
+            else 
+            {
+                globodiv.style.height = "200px";
+                globodiv.style.width = "200px";
+            
+            }
+        }  
+
+        function small()
+        {
+            const globo=document.getElementById("globodiv");
+            let diametro = globo.clientHeight;
+
+            colordown();
+
+            if (diametro > 200)
+            {
+                globodiv.style.height = diametro - 5 + "px";
+                globodiv.style.width = diametro - 5 + "px";
+            }
+
+            else
+            {
+                globodiv.style.height = "200px";
+                globodiv.style.width = "200px";
+            }
+        }
+
+        </script>
+    
+    <body>
+        <div id="globodiv" onclick="big()" onmouseleave="small()"></div>
+    </body>
+    
+</html>
