@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .cajatexto {
+        border-color: "black";
+    }
+</style>
+<script>
+
+    function isnumber(texto) {
+        let numbers = "0123456789";
+
+        for (let i = 0; i < texto.length; i++) {
+            if (numbers.indexOf(texto[i]) == -1) {
+                return -1;
+            }
+        }
+
+        return parseInt(texto, 10);
+    }
+
+    function calc() {
+        var x;
+        var y = isnumber(document.getElementById("cajaizq").value);
+        var z = isnumber(document.getElementById("cajadcha").value);
+        var sel = document.getElementById("desplegable");
+        var selection = sel.options[sel.selectedIndex].value;
+        if (y >= 0 && z >= 0) {
+            if ((selection == "divi" || selection == "modul") && (z == 0)) {
+                alert("It’s over 9000!");
+            }
+            else {
+                if (selection == "suma") {
+                    x = parseFloat(y) + parseFloat(z);
+                }
+                if (selection == "resta") {
+                    x = parseFloat(y) - parseFloat(z);
+                }
+                if (selection == "divi") {
+                    x = parseFloat(y) / parseFloat(z);
+                }
+                if (selection == "multi") {
+                    x = parseFloat(y) * parseFloat(z);
+                }
+                if (selection == "modul") {
+                    x = parseFloat(y) % parseFloat(z);
+                }
+                alert("El resultado es " + x + ".");
+                console.log("El resultado es " + x + ".");
+            }
+        }
+        else {
+            alert("Error.");
+        }
+    }
+    setTimeout(saludo, 30000);
+    function saludo() {
+        alert("¿Hola?");
+    }
+</script>
+
+<input class="cajatexto" type="text" value="0" id="cajaizq">
+<select id="desplegable">
+    <option value="suma">+</option>
+    <option value="resta">-</option>
+    <option value="divi">/</option>
+    <option value="multi">*</option>
+    <option value="modul">%</option>
+</select>
+<input class="cajatexto" type="text" value="0" id="cajadcha">
+<input type="submit" value="Try me!" onclick="calc()">
+
+</html>
